@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sneak&frog</title>
+</head>
+<body>
+<script>
+    function Sneak(name,color,speed) {
+          this.name = name;
+          this.color = color;
+          this.speed = speed;
+          this.sound = function (soundSneak) {
+             console.log(soundSneak);
+          }
+          this.catch = function (frog) {
+              if(this.speed>frog.speed)
+              {
+                  console.log('Rắn ' + this.name + ' đã bắt được ếch ' + frog.name);
+              }
+              else
+              {
+                  console.log('Rắn ' + this.name + ' không bắt được ếch ' + frog.name);
+              }
+          }
+          this.eat = function (frog) {
+            if(frog.getStatus())
+            {
+                if(this.color!=frog.color) {
+                    console.log('Con rắn ' + this.name + ' màu ' + this.color + ' đã ăn con ếch ' + frog.name + ' màu ' + frog.color);
+                    this.color = this.color + frog.color;
+                    frog.setStatus(false);
+                }
+                else
+                {
+                    console.log('không ăn ếch cùng màu >.<');
+                }
+
+            }
+            else
+            {
+                console.log('không ăn ếch chết >.<');
+            }
+        }
+    }
+    let faker = new Sneak('faker','yellow',50);
+    let teddy = new Sneak('teddy','red',40);
+
+    function Frog(name,color,speed,status) {
+        this.name = name;
+        this.color = color;
+        this.speed = speed;
+        this.status = status;
+        this.getStatus = function () {
+            return this.status;
+        }
+        this.setStatus = function (newStatus) {
+            this.status = newStatus;
+        }
+        this.sound = function (soundFrog) {
+            console.log(soundFrog);
+        }
+    }
+    let uzi = new Frog('uzi','yellow',30,true);
+    let caps = new Frog('caps','red',80,true);
+    let levi = new Frog('levi','yellow',65,false);
+
+</script>
+</body>
+</html>
