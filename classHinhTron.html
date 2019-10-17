@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classHinhTron</title>
+</head>
+<body>
+<script>
+    let Circle = function (radius) {
+        this.radius = radius;
+        this.getRadius = function () {
+            return radius;
+        }
+        this.getArea = function () {
+            return Math.PI*radius*radius;
+        }
+    }
+    let a = new Circle(4);
+    let radius = a.getRadius();
+    let area = a.getArea();
+    alert(radius + '-' + area);
+</script>
+</body>
+</html>
