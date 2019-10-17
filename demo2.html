@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let k = prompt("Nhập số phần tử");
+    let t = [];
+    for (i=0;i<k;i++){
+        let arr = Number(prompt("Nhập thứ tự phần tử "+i));
+        t.push(arr);
+    }
+    let m = prompt("Nhập v");
+    for (i=0;i<t.length;i++){
+        if (m == t[i]){
+            index=i;
+            for (j=index;j<t.length;j++){
+                t[j]=t[j+1];
+            }
+        }
+    }
+    document.write("Mảng đã chỉnh sửa " + t);
+</script>
+</body>
+</html>
