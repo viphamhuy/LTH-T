@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classTemperature</title>
+</head>
+<body>
+<script>
+    function Celcius(c) {
+        this.c = c;
+        if(c>=-273) {
+            this.fahrenheit = function () {
+                return (c * 9 )/ 5 + 32;
+            }
+            this.kelvin = function () {
+                return c + 273.15;
+            }
+        }
+    }
+    let a = new Celcius(25);
+    document.write(a.c + ' C ='+a.fahrenheit()+ ' F'+'<br>');
+    document.write(a.c + ' C =' + a.kelvin() + ' K');
+</script>
+</body>
+</html>
