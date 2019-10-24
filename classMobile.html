@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>classMobile</title>
+</head>
+<body>
+<script>
+    function Mobile(battery, messageing, inputmessage, outputmessage, status)
+    {
+        this.battery = battery;
+        this.messageing = messageing;
+        this.inputmessage = inputmessage;
+        this.outputmessage = outputmessage;
+        this.status = status;
+        this.getStatus = function () {
+            return this.status;
+        }
+        this.setStatus = function (newStatus) {
+            this.status = newStatus;
+        }
+        this.check = function () {
+            if(this.status==true)
+            {
+                return 'Điện thoại đang bật.';
+            }
+            else
+            {
+                return 'Điện thoại đang tắt.';
+            }
+        }
+        this.switch = function () {
+            if(this.status==true)
+            {
+                this.status = false;
+                return 'Đã tắt điện thoại';
+
+            }
+            else
+            {
+                this.status=true;
+                return 'Đã bật điện thoại';
+
+            }
+        }
+        this.charge = function () {
+
+           while (this.battery<100)
+           {
+               this.battery++;
+           }
+            return this.battery;
+        }
+        this.texting = function (newtexting) {
+            if(this.status==true&&this.battery>0) {
+                this.messageing = newtexting;
+                this.battery--;
+            }
+            else
+            {
+                return 'Điện thoại chưa bật không thể sử dụng';
+            }
+        };
+
+        this.inboxMessage = function (mobile) {
+            if(this.status==true&&this.battery>0) {
+                this.inputmessage += mobile.messageing;
+                mobile.outputmessage += mobile.messageing;
+                mobile.messageing = '';
+                this.battery--;
+            }
+            else
+            {
+                return 'Điện thoại chưa bật không thể sử dụng';
+            }
+        };
+    };
+    let iphone = new Mobile(10,'','','',true);
+    let samsung = new Mobile(20,'','','',false);
+    iphone.texting('123');
+    document.write(samsung.status);
+    document.write(samsung.inboxMessage(iphone));
+</script>
+</body>
+</html>

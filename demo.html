@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,6 +26,7 @@
     let long=new Mouse('long',69,5,true);
     let dung= new Mouse('dung',96,10,false);
     let dong = new Mouse('dong',70,15,true);
+
     function Cat(name,weight,speed) {
         this.name = name;
         this.weight = weight;
@@ -36,10 +37,10 @@
         this.catch = function (mouse) {
             if(this.speed>mouse.speed)
             {
-                console.log('Mèo' + this.name + ' đã bắt được con chuột ' + mouse.name);
+              return  'Mèo ' + this.name + ' đã bắt được con chuột ' + mouse.name;
             }
             else {
-                console.log('Mèo' + this.name + ' không bắt được con chuột ' + mouse.name);
+              return   'Mèo ' + this.name + ' không bắt được con chuột ' + mouse.name;
             }
         }
         this.eat = function (mouse) {
@@ -47,14 +48,18 @@
             {
                 this.weight += mouse.weight;
                 mouse.setStatus(false);
+                return this.weight;
             }
             else
             {
-                console.log('con chuột này đã bị ăn');
+               return  'con chuột này đã bị ăn';
             }
         }
     }
     let minh = new Cat('minh',60,70);
+
+    document.write(minh.eat(long));
+    document.write(long.status);
 
 </script>
 </body>
